@@ -1,4 +1,4 @@
-window.promises = [];
+
 
  const promises = [
       new Promise((resolve) => setTimeout(() => resolve('Promise 1 resolved'), Math.floor(Math.random() * 5000) + 1000)),
