@@ -1,11 +1,14 @@
-  const promises = [
-        new Promise((resolve) => setTimeout(() => resolve("Promise 1 resolved"), Math.floor(Math.random() * 5000) + 1000)),
-        new Promise((resolve) => setTimeout(() => resolve("Promise 2 resolved"), Math.floor(Math.random() * 5000) + 1000)),
-        new Promise((resolve) => setTimeout(() => resolve("Promise 3 resolved"), Math.floor(Math.random() * 5000) + 1000)),
-        new Promise((resolve) => setTimeout(() => resolve("Promise 4 resolved"), Math.floor(Math.random() * 5000) + 1000)),
-        new Promise((resolve) => setTimeout(() => resolve("Promise 5 resolved"), Math.floor(Math.random() * 5000) + 1000))
-      ];
+window.promises = [];
 
-      Promise.any(promises).then((result) => {
-        document.getElementById("output").innerText = result;
-      });
+const res= document.getElementById("output");
+
+for(let i=0;i<5;i++){
+	const time=Math.floor(Math.random()*5)+1;
+	promises.push(
+		new Promise((resolve)=>{
+			setTimeout(()=>resolve(time),time*1000)
+		})
+	)
+}
+
+Promise.any(promises).then((result)=>res.innerText=result);
